@@ -1,0 +1,4 @@
+namespace: bgd
+resources:
+- ../../base
+- bgd-ns.yaml
