@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: welcome-php-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
     argocd.argoproj.io/sync-wave: "3"
 spec:
   rules:
