@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: welcome-php-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  rules:
+    - host: welcome-php.devnation
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: welcome-php
+                port:
+                  number: 8080
