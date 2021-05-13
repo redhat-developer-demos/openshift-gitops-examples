@@ -4,7 +4,6 @@ namespace: bgdk
 resources:
 - ../../base
 - bgdk-ns.yaml
-- bgdk-ingress.yaml
 patchesJson6902:
   - target:
       version: v1
@@ -16,3 +15,14 @@ patchesJson6902:
       - op: replace
         path: /spec/template/spec/containers/0/env/0/value
         value: yellow
+  - target:
+      version: v1
+      group: networking.k8s.io
+      kind: Ingress
+      name: bgd
+      namespace: bgdk
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: bgdk.devnation
+
