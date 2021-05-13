@@ -5,3 +5,15 @@ resources:
 - ../../base
 - welcome-php-ns.yaml
 - welcome-php-presync-job.yaml
+patchesJson6902:
+  - target:
+      version: v1
+      group: networking.k8s.io
+      kind: Ingress
+      name: welcome-php
+      namespace: welcome-hooks
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: welcome-php-hooks.devnation
+
