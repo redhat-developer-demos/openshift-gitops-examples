@@ -7,3 +7,15 @@ resources:
 - welcome-php-postsync-pod.yaml
 - welcome-php-presync-job.yaml
 - welcome-php-presync-pod.yaml
+patchesJson6902:
+  - target:
+      version: v1
+      group: networking.k8s.io
+      kind: Ingress
+      name: welcome-php
+      namespace: welcomie-waves-and-hooks
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: welcome-php-waves-hooks.devnation
+
