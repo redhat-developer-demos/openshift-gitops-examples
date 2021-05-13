@@ -12,7 +12,7 @@ patchesJson6902:
       version: v1
       group: networking.k8s.io
       kind: Ingress
-      name: welcome-php
+      name: welcome-php-ingress
       namespace: welcomie-waves-and-hooks
     patch: |-
       - op: replace
