@@ -1,7 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  creationTimestamp: null
   labels:
     app: bgd
   name: bgd
@@ -14,8 +13,3 @@ spec:
     kind: Service
     name: bgd
     weight: 100
-status:
-  ingress:
-  - conditions:
-    - status: "True"
-      type: Admitted
