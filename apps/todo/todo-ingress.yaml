@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo
+  namespace: todo
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  rules:
+    - host: todo.devnation
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: todo-gitops
+                port:
+                  number: 8080
