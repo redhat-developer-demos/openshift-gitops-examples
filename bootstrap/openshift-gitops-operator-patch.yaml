@@ -1,0 +1,13 @@
+spec:
+  resourceCustomizations: |
+    route.openshift.io/Route:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/host
+  server:
+    insecure: true
+    route:
+      enabled: true
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: edge
