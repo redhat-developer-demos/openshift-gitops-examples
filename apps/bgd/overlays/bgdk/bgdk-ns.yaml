@@ -4,3 +4,4 @@ metadata:
   name: bgdk
   labels:
     argocd.argoproj.io/managed-by: openshift-gitops
+    
