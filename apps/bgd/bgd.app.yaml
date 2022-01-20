@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: bgd
+    server: https://kubernetes.default.svc 
+  project: default 
+  source: 
+    path: apps/bgd/overlays/bgd
+    repoURL: https://github.com/Ekene-Chris/openshift-gitops-examples
+    targetRevision: minikube
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
