@@ -19,7 +19,7 @@ spec:
         app: bgd
     spec:
       containers:
-      - image: quay.io/redhatworkshops/bgd:latest
+      - image: quay.io/rhdevelopers/bgd:1.0.0
         name: bgd
         env:
         - name: COLOR
