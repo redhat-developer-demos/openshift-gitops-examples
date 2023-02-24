@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd-app-dharan
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: bgd-dharan
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    #path: apps/bgd/overlays/bgd
+    path: apps/bgd/base
+    #repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
+    repoURL: https://github.com/ktdharan/openshift-gitops-examples
+    #targetRevision: main
+    targetRevision: updating-quay.io/redhatworkshops-images 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
