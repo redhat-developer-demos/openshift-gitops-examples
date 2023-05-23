@@ -24,9 +24,15 @@ spec:
               containerPort: 5432
           env:
             - name: PG_USER_PASSWORD
-              value: admin
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secret
+                  key: password
             - name: PG_USER_NAME
-              value: admin
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secret
+                  key: username
             - name: PG_DATABASE
               value: todo
             - name: PG_NETWORK_MASK
