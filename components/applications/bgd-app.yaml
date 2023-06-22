@@ -10,8 +10,8 @@ spec:
   project: default
   source:
     path: apps/bgd/overlays/bgd
-    repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
-    targetRevision: main
+    repoURL: https://github.com/LucaRottiers/openshift-gitops-examples
+    targetRevision: dev
   syncPolicy:
     automated:
       prune: true
